@@ -11,15 +11,11 @@
    
   // Called when we get a line of data - updates the light color
   function onLine(line) {
-   
-  var val = j.temperature; // read voltage
- 
-  var temp1 = val * 10;
-   
+
     try {
       var j = JSON.parse(line);
       console.log("Received JSON: ",j);
-      elements.temperature.setValue(temp1);
+      elements.temperature.setValue(j.temperature);
     } catch(e) {
       console.log("Received: ",line);
     }
@@ -53,7 +49,7 @@
           // Now tell it to write data on the current light level to Bluetooth
           // 10 times a second. Also ensure that when disconnected, Puck.js
           // resets so the setInterval doesn't keep draining battery.
-          connection.write("setInterval(function(){Bluetooth.println(JSON.stringify({temperature:analogRead(D29)}));},100);NRF.on('disconnect', function() {reset()});\n",
+          connection.write("setInterval(function(){Bluetooth.println(JSON.stringify({temperature:getTemp()}));},100);NRF.on('disconnect', function() {reset()});\n",
             function() { console.log("Ready..."); });
           }, 1500);
         });
