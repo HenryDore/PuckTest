@@ -27,7 +27,7 @@
     try {
       var j = JSON.parse(line);
       console.log("Received JSON: ",j);
-      elements.light.setValue(j.light*100);
+      elements.light.setValue(getTemp());
     } catch(e) {
       console.log("Received: ",line);
     }
