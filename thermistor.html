@@ -25,6 +25,7 @@
     try {
       var j = JSON.parse(line);
       console.log("Received JSON: ",j);
+      getTemp();
       elements.temperature.setValue(temp);
     } catch(e) {
       console.log("Received: ",line);
