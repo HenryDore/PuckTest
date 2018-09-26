@@ -8,18 +8,7 @@
   <script src="https://espruino.github.io/TinyDash/tinydash.js"></script>
   <script src="https://www.puck-js.com/puck.js"></script>  
   <script>
-   
-  function getTemp() {
-  var val = j.temperature; // read voltage
-  var ohms = 10000*val/(1-val); // work out ohms
-  var A = 0.001125308852122; // Steinhart equation
-  var B = 0.000234711863267;
-  var C = 0.000000085663516;
-  var W = Math.log(ohms);
-  var temp = 1 / (A + W * (B+C * W*W)) - 273.15;
-  return temp; // and return the temperature
-  }
-   
+    
   // Called when we get a line of data - updates the light color
   function onLine(line) {
     try {
