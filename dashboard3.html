@@ -15,7 +15,7 @@
     try {
       var j = JSON.parse(line);
       console.log("Received JSON: ",j);
-      elements.light.setValue(getTemp());
+      elements.light.setValue(analogRead(D29));
     } catch(e) {
       console.log("Received: ",line);
     }
