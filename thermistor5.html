@@ -79,8 +79,9 @@
     heading : TD.label({x:10,y:10,width:190,height:50,label:"My Dashboard"}),
     light : TD.gauge({x:10,y:70,width:190,height:220,label:"AnalogueRead D29",value:0,min:0,max:1}),
     temperature :TD.gauge({x:10,y:290,width:190,height:220,label:"Temperature",value:69,min:-1000,max:1000}),
-    modal: TD.modal({x:10,y:10,width:190,height:430,label:"Click to connect",onchange:connectDevice}),
-    log:TD.log({x:200,y:10,width:190,height:200,label:"Rev 3",text:"Initialising"})
+    log:TD.log({x:210,y:10,width:190,height:200,label:"Rev 3",text:"Initialising"}),
+    modal: TD.modal({x:10,y:10,width:400,height:490,label:"Click to connect",onchange:connectDevice})
+   
   }
   for (var i in elements)
     document.body.appendChild(elements[i]);
