@@ -15,7 +15,7 @@
     try {
      
   
-  var val = JSON.parse(line);
+  var val = parseFloat(JSON.parse(line));
   var ohms = 10000*val/(1-val); // work out ohms
   var A = 0.001125308852122; // Steinhart equation
   var B = 0.000234711863267;
