@@ -16,10 +16,10 @@
      
   
   var val = JSON.parse(line);
-  var ohms = 5600*val/(1-val); // work out ohms
-  var A = 0.0012874; // Steinhart equation
-  var B = 0.00023573;
-  var C = 0.000000095052;
+  var ohms = 10000*val/(1-val); // work out ohms
+  var A = 0.001125308852122; // Steinhart equation
+  var B = 0.000234711863267;
+  var C = 0.000000085663516;
   var W = Math.log(ohms);
   var j = 1 / (A + W * (B+C * W*W)) - 273.15;
       
