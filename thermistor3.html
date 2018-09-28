@@ -14,7 +14,8 @@
 
     try {
      
-  function getTemp(JSON.parse(line)) {
+  function getTemp() {
+  var val = JSON.parse(line);
   var ohms = 5600*val/(1-val); // work out ohms
   var A = 0.0012874; // Steinhart equation
   var B = 0.00023573;
