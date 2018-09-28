@@ -15,7 +15,7 @@
       console.log("Received JSON: ",j);
       elements.light.setValue(j.light*1);
      
-     elements.log.log("done a thing");
+     elements.log.log(j);
      function steinhartEqn() {
      var val = JSON.parse(line);
      var ohms = 10000*val/(1-val); // work out ohms
