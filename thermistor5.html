@@ -20,9 +20,9 @@
      var A = 0.001125308852122; // Steinhart equation
      var B = 0.000234711863267;
      var C = 0.000000085663516;
-     var W = 3;
-     //var W = Math.log(ohms);
-     var temperature2 = 1 / (A + W * (B+C * W*W)) - 273.15;
+     var W = Math.log(ohms);
+     var temperature2 = parseInt(1 / (A + W * (B+C * W*W)) - 273.15), 10);
+     
      elements.temperature.setValue(temperature2.temperature*1);
      
     } catch(e) {
