@@ -22,7 +22,7 @@
   var C = 0.000000085663516;
   var W = Math.log(ohms);
   var j = 1 / (A + W * (B+C * W*W)) - 273.15;
-     var j = 22.5;
+     var j = "22.5";
       
       console.log("Received JSON: ",j);
       elements.temperature.setValue(j.temperature);
