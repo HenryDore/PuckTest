@@ -23,11 +23,11 @@
   var W = Math.log(ohms);
   var j = 1 / (A + W * (B+C * W*W)) - 273.15;
 
+  var result = 69;    
       
-      console.log("Received JSON: ",j);
-      elements.temperature.setValue(26);
+      elements.temperature.setValue(result);
     } catch(e) {
-      console.log("Received: ",line);
+     
     }
   }
   var connection;
