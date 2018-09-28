@@ -23,9 +23,12 @@
      var C = 0.000000085663516;
      var W = Math.log(ohms);
      var temperature2 = 1 / (A + W * (B+C * W*W)) - 273.15;
+     
+     elements.temperature.setValue(temperature2.temperature*1); 
+      
      }
      
-     elements.temperature.setValue(temperature2.temperature*1);
+     
      
     } catch(e) {
       console.log("Received: ",line);
