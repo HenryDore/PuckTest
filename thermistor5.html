@@ -29,18 +29,18 @@
      var W = Math.log(ohms);
      var temperature2 = 1 / (A + W * (B+C * W*W)) - 273.15;
      
-     elements.log.log("val=");
-     elements.log.log(JSON.stringify(val));
-     elements.log.log("ohms=");
-     elements.log.log(JSON.stringify(ohms));
-     elements.log.log("temperature2=");
-     elements.log.log(JSON.stringify(temperature2));
-     elements.log.log("\n\n\n\n\n\n");
+     //elements.log.log("val=");
+     //elements.log.log(JSON.stringify(val));
+     //elements.log.log("ohms=");
+     //elements.log.log(JSON.stringify(ohms));
+    // elements.log.log("temperature2=");
+    // elements.log.log(JSON.stringify(temperature2));
+    // elements.log.log("\n\n\n\n\n\n");
      console.log("Received JSON: ",temperature2); 
       
      elements.temperature.setValue(JSON.parse(temperature2)); 
       
-     //}
+     
      
      
      
@@ -89,8 +89,8 @@
     heading : TD.label({x:10,y:10,width:190,height:50,label:"Puck.Js Test"}),
     light : TD.gauge({x:10,y:70,width:190,height:220,label:"AnalogueRead D29",value:0,min:0,max:1}),
     temperature :TD.gauge({x:10,y:290,width:190,height:220,label:"Temperature",value:0,min:00,max:50}),
-    log:TD.log({x:210,y:10,width:190,height:200,label:"Debugging:",text:"Initialising"}),
-    modal: TD.modal({x:10,y:10,width:400,height:490,label:"Click to connect Rev.12",onchange:connectDevice})
+    //log:TD.log({x:210,y:10,width:190,height:200,label:"Debugging:",text:"Initialising"}),
+    modal: TD.modal({x:10,y:10,width:400,height:490,label:"Click to connect Rev.13",onchange:connectDevice})
    
   }
   for (var i in elements)
