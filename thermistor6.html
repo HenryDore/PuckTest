@@ -75,7 +75,7 @@
     light : TD.gauge({x:10,y:70,width:190,height:220,label:"AnalogueRead D29",value:0,min:0,max:1}),
     temperature :TD.gauge({x:10,y:290,width:190,height:220,label:"Temperature",value:0,min:0,max:100}),
     modal: TD.modal({x:10,y:10,width:190,height:430,label:"Click to connect",onchange:connectDevice}),
-    value: TD.log({x:200,y:10,width:290,height:100,label:"Temperature",value:ohms})
+    value: TD.log({x:200,y:10,width:190,height:50,label:"Temperature",value:ohms})
   }
   for (var i in elements)
     document.body.appendChild(elements[i]);
