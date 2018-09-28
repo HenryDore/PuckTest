@@ -14,7 +14,7 @@
   function onLine(line) {
     try {
       j = JSON.parse(line);
-      //console.log("Received JSON: ",j);
+      console.log("Received JSON: ",j);
       elements.light.setValue(j.light*1);
      
      function steinhartEqn() {
@@ -30,7 +30,7 @@
      elements.temperature.setValue(temperature2.temperature*1);
      
     } catch(e) {
-     // console.log("Received: ",line);
+     console.log("Received: ",line);
     }
   }
   var connection;
