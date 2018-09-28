@@ -4,6 +4,11 @@
   <meta name="viewport" content="width=210, initial-scale=1">
  </head>
  <body style="width:210px;height:450px">
+  
+  <p>In this example, x, y, and z are variables.</p>
+
+<p id="demo"></p>
+  
   <link href="https://espruino.github.io/TinyDash/tinydash.css" rel="stylesheet">
   <script src="https://espruino.github.io/TinyDash/tinydash.js"></script>
   <script src="https://www.puck-js.com/puck.js"></script>  
@@ -73,6 +78,14 @@
   }
   for (var i in elements)
     document.body.appendChild(elements[i]);
+   
+  var x = 5;
+var y = 6;
+var z = x + y;
+document.getElementById("demo").innerHTML =
+"The value of z is: " + z; 
+   
   </script>
+  
  </body>
 </html>
