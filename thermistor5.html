@@ -15,13 +15,13 @@
       console.log("Received JSON: ",j);
       elements.light.setValue(j.light*1);
      
-     var val = j;
+     var val = JSON.parse(line);
      var ohms = 10000*val/(1-val); // work out ohms
      var A = 0.001125308852122; // Steinhart equation
      var B = 0.000234711863267;
      var C = 0.000000085663516;
      var W = Math.log(ohms);
-     var temperature2 = parseInt(1 / (A + W * (B+C * W*W)) - 273.15), 10);
+     var temperature2 = 1 / (A + W * (B+C * W*W)) - 273.15;
      
      elements.temperature.setValue(temperature2.temperature*1);
      
