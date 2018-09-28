@@ -29,7 +29,12 @@
      var W = Math.log(ohms);
      var temperature2 = 1 / (A + W * (B+C * W*W)) - 273.15;
      
+     elements.log.log("val=");
      elements.log.log(JSON.stringify(val));
+     elements.log.log("ohms=");
+     elements.log.log(JSON.stringify(ohms));
+     elements.log.log("temperature2=");
+     elements.log.log(JSON.stringify(temperature2));
       
      console.log("Received JSON: ",temperature2); 
       
@@ -72,7 +77,7 @@
           // Now tell it to write data on the current light level to Bluetooth
           // 10 times a second. Also ensure that when disconnected, Puck.js
           // resets so the setInterval doesn't keep draining battery.
-          connection.write("setInterval(function(){Bluetooth.println(JSON.stringify({light:analogRead(D29)}));},100);NRF.on('disconnect', function() {reset()});\n",
+          connection.write("setInterval(function(){Bluetooth.println(JSON.stringify({light:analogRead(D29)}));},3000);NRF.on('disconnect', function() {reset()});\n",
             function() { console.log("Ready..."); });
           }, 1500);
         });
