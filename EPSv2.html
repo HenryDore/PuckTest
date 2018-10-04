@@ -12,7 +12,7 @@
 
 <html>
  <head>
-  <title>EPSv2</title>
+  <title>EPSv2.1</title>
   <meta name="viewport" content="width=210, initial-scale=1">
  </head>
  <body style="width:210px;height:450px">
@@ -42,7 +42,7 @@
       connection = c;
       // remove modal window
       elements.modal.remove();
-      // Handle the data we get back, and cal 'onLine'
+      // Handle the data we get back, and call 'onLine'
       // whenever we get a line
       var buf = "";
       connection.on("data", function(d) {
@@ -57,14 +57,15 @@
       // First, reset Puck.js
       connection.write("reset();\n", function() {
         // Wait for it to reset itself
-		   setTimeout(function() {
+        setTimeout(function() {
           // Now tell it to write data on the current voltage level to Bluetooth
           // 10 times a second. Also ensure that when disconnected, Puck.js
           // resets so the setInterval doesn't keep draining battery.
-          connection.write("setInterval(function(){Bluetooth.println(JSON.stringify({EPS1:analogRead(D28)()}));},100);NRF.on('disconnect', function() {reset()});\n",
+          connection.write("setInterval(function(){Bluetooth.println(JSON.stringify({analogRead(D28)()}));},100);NRF.on('disconnect', function() {reset()});\n",
             function() { console.log("Ready..."); });
           }, 1500);
         });
+      });
 
   }
   var elements = {
