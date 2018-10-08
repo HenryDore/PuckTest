@@ -11,16 +11,15 @@
   // Called when we get a line of data - updates the light color
   function onLine(line) {
     try {
-      var j = JSON.parse(line);
+     var j = JSON.parse(line);
      console.log("Hello");
-      elements.log.log("Received JSON: ",j);
+     elements.log.log("Received JSON: ",j);
       //elements.log.log(line);
-      if (j.temp !== undefined) {elements.temp.setValue(j.temp);}
-      if (j.mag !== undefined) {elements.temp.setValue(j.mag);}
+     if (j.EPS1 !== undefined) {elements.temp.setValue(j.EPS1);}
+     if (j.EPS2 !== undefined) {elements.temp.setValue(j.EPS2);}
      // var totmag =j.mag;
-      elements.log.log(j.temp) ;
-     elements.log.log(j.mag) ;
-      //elements.mag.setValue(totmag) ;
+     elements.log.log(j.EPS1) ;
+     elements.log.log(j.EPS2) ;
      
     
     } catch(e) {
@@ -56,20 +55,20 @@
           // Now tell it to write data on the current light level to Bluetooth
           // 10 times a second. Also ensure that when disconnected, Puck.js
           // resets so the setInterval doesn't keep draining battery.
-          connection.write("setInterval(function(){Bluetooth.println(JSON.stringify({temp:analogRead(D28)}))},1000);NRF.on('disconnect', function() {reset()});\n"
+          connection.write("setInterval(function(){Bluetooth.println(JSON.stringify({EPS1:analogRead(D28)}))},1000);NRF.on('disconnect', function() {reset()});\n"
                            , function() { console.log("Ready..."); 
-                                         connection.write("setInterval(function(){Bluetooth.println(JSON.stringify({mag:analogRead(D29)}))},1000);NRF.on('disconnect', function() {reset()});\n"
+                                         connection.write("setInterval(function(){Bluetooth.println(JSON.stringify({EPS2:analogRead(D29)}))},1000);NRF.on('disconnect', function() {reset()});\n"
                                          , function() { console.log("Ready..."); });
                                          }, 1000); //eo setTimeout});
-         }, 10000); //eo setTimeout
+         }, 1000); //eo setTimeout
        }); //eo connection reset
     }); //eo puck.connect
   } //eo connectDevice
   // Set up the controls we see on the screen    
   var elements = {
     heading : TD.label({x:10,y:10,width:390,height:50,label:"EPS PUCK.JS"}),
-    temp : TD.gauge({x:10,y:70,width:190,height:220,label:"EPS1",value:0,min:-2,max:2}),
-    mag : TD.gauge({x:210,y:70,width:190,height:220,label:"EPS2",value:0,min:-2,max:2}),
+    EPS1 : TD.gauge({x:10,y:70,width:190,height:220,label:"EPS1",value:0,min:-2,max:2}),
+    EPS2 : TD.gauge({x:210,y:70,width:190,height:220,label:"EPS2",value:0,min:-2,max:2}),
     log:TD.log({x:10,y:300,width:390,height:200,label:"Logger",text:""}),
     modal: TD.modal({x:10,y:70,width:390,height:430,label:"Connect Puck!",onchange:connectDevice})
   }
