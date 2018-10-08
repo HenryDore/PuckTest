@@ -1,6 +1,6 @@
 <html>
  <head>
-  <title>EPS V3.5</title>
+  <title>EPS V3.6</title>
   <meta name="viewport" content="width=210, initial-scale=1">
  </head>
  <body style="width:210px;height:450px">
@@ -13,7 +13,7 @@
     try {
       var j = JSON.parse(line);
      console.log("Hello");
-      console.log("Received JSON: ",j);
+      elements.log.log("Received JSON: ",j);
       //elements.log.log(line);
       if (j.temp !== undefined) {elements.temp.setValue(j.temp);}
       if (j.mag !== undefined) {elements.temp.setValue(j.mag);}
@@ -67,11 +67,11 @@
   } //eo connectDevice
   // Set up the controls we see on the screen    
   var elements = {
-    heading : TD.label({x:10,y:10,width:400,height:50,label:"EPS PUCK.JS"}),
+    heading : TD.label({x:10,y:10,width:390,height:50,label:"EPS PUCK.JS"}),
     temp : TD.gauge({x:10,y:70,width:190,height:220,label:"EPS1",value:0,min:-2,max:2}),
     mag : TD.gauge({x:210,y:70,width:190,height:220,label:"EPS2",value:0,min:-2,max:2}),
-    log:TD.log({x:10,y:300,width:250,height:200,label:"Logger",text:""}),
-    modal: TD.modal({x:10,y:70,width:190,height:430,label:"Connect Puck!",onchange:connectDevice})
+    log:TD.log({x:10,y:300,width:390,height:200,label:"Logger",text:""}),
+    modal: TD.modal({x:10,y:70,width:390,height:430,label:"Connect Puck!",onchange:connectDevice})
   }
   for (var i in elements)
     document.body.appendChild(elements[i]);
