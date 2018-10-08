@@ -17,9 +17,8 @@
       //elements.log.log(line);
      //alert(line);
       if (j.temp !== undefined) {elements.temp.setValue(j.temp);}
-      var totmag = Math.sqrt(j.mag.x*j.mag.x + j.mag.y*j.mag.y + j.mag.z*j.mag.z)
-      elements.log.log(j.mag.x +" " + j.mag.y +" "+ j.mag.z+"---> " + totmag) ;
-     //var strength = new Vec3(j.temp.x,j.temp.y,j.temp.z).mag();
+      var totmag =j.mag;
+      elements.log.log(j.mag) ;
       elements.mag.setValue(totmag) ;
      
     
@@ -56,11 +55,11 @@
           // Now tell it to write data on the current light level to Bluetooth
           // 10 times a second. Also ensure that when disconnected, Puck.js
           // resets so the setInterval doesn't keep draining battery.
-          connection.write("setInterval(function(){Bluetooth.println(JSON.stringify({temp:analogRead(D28)}))},5000);NRF.on('disconnect', function() {reset()});\n"
+          connection.write("setInterval(function(){Bluetooth.println(JSON.stringify({temp:analogRead(D28)}))},1000);NRF.on('disconnect', function() {reset()});\n"
                            , function() { console.log("Ready..."); 
-                                         connection.write("setInterval(function(){Bluetooth.println(JSON.stringify({mag:analogRead(D29)}))},5000);NRF.on('disconnect', function() {reset()});\n"
+                                         connection.write("setInterval(function(){Bluetooth.println(JSON.stringify({mag:analogRead(D29)}))},1000);NRF.on('disconnect', function() {reset()});\n"
                                          , function() { console.log("Ready..."); });
-                                         }, 5000); //eo setTimeout});
+                                         }, 1000); //eo setTimeout});
          }, 10000); //eo setTimeout
        }); //eo connection reset
     }); //eo puck.connect
