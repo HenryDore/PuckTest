@@ -1,6 +1,6 @@
 <html>
  <head>
-  <title>EPS V3.96</title>
+  <title>EPS V3.97</title>
   <meta name="viewport" content="width=210, initial-scale=1">
  </head>
  <body style="width:210px;height:450px">
@@ -8,7 +8,12 @@
   <script src="https://espruino.github.io/TinyDash/tinydash.js"></script>
   <script src="https://www.puck-js.com/puck.js"></script>  
   <script>
-  // Called when we get a line of data - updates the light color
+  
+   
+  var EPS1V = 0;
+  var EPS2V = 0;  
+   
+   
   function onLine(line) {
     try {
      var j = JSON.parse(line);
@@ -24,10 +29,10 @@
      console.log("buffer1=",buffer1);
      console.log("buffer2=",buffer2);
  
-     if (buffer1 !== undefined) {var EPS1V = buffer1 ;};
+     if (buffer1 !== undefined) {EPS1V = buffer1 ;};
      console.log("EPS1V=",EPS1V);
      
-     if (buffer2 !== undefined) {var EPS2V = buffer2 ;};
+     if (buffer2 !== undefined) {EPS2V = buffer2 ;};
      console.log("EPS2V=",EPS2V);
      
      elements.EPS1.setValue(EPS1V);
