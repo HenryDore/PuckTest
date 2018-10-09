@@ -1,6 +1,6 @@
 <html>
  <head>
-  <title>EPS V3.95</title>
+  <title>EPS V3.96</title>
   <meta name="viewport" content="width=210, initial-scale=1">
  </head>
  <body style="width:210px;height:450px">
@@ -12,24 +12,28 @@
   function onLine(line) {
     try {
      var j = JSON.parse(line);
-     elements.log.log("Received JSON: ",j);
-     elements.log.log(line);
+     console.log("Received JSON: ",j);
+     console.log(line);
      
-     console.log("EPS1=",j.EPS1);
-     console.log("EPS2=",j.EPS2);
-     if (j.EPS1 !== undefined) {var EPS1V = j.EPS1 ;};
+     console.log("j.EPS1=",j.EPS1);
+     console.log("j.EPS2=",j.EPS2);
+     
+     var buffer1 = j.EPS1;
+     var buffer2 = j.EPS2;
+     
+     console.log("buffer1=",buffer1);
+     console.log("buffer2=",buffer2);
+ 
+     if (buffer1 !== undefined) {var EPS1V = buffer1 ;};
      console.log("EPS1V=",EPS1V);
      
-     if (j.EPS2 !== undefined) {var EPS2V = j.EPS2 ;};
+     if (buffer2 !== undefined) {var EPS2V = buffer2 ;};
      console.log("EPS2V=",EPS2V);
      
      elements.EPS1.setValue(EPS1V);
      elements.EPS2.setValue(EPS2V);
-     
-     
-     // var totmag =j.mag;
-     elements.log.log(EPS1V) ;
-     elements.log.log(EPS2V) ;
+       
+     console.log("========================");
      
     
     } catch(e) {
